@@ -1,9 +1,9 @@
 init:
     $ right = Position(xpos=1.0, ypos=1.0, xalign=1.0, yalign= 1.0)
-    $ right_off = Position(xpos=0.9, ypos=1.0, xalign=1.0, yalign= 1.0)
+    $ right_off = Position(xpos=0.85, ypos=1.0, xalign=1.0, yalign= 1.0)
 
     $ left = Position(xpos=0.0, ypos=1.0, xalign=0.0, yalign= 1.0)
-    $ left_off = Position(xpos=0.1, ypos=1.0, xalign=0.0, yalign= 1.0)
+    $ left_off = Position(xpos=0.15, ypos=1.0, xalign=0.0, yalign= 1.0)
 
     $ center = Position(xpos=0.5, ypos=1.0, xalign=0.5, yalign= 1.0)
 
@@ -21,8 +21,8 @@ define lucy = Character("Lucy")
 image lucy = "draft/lucy.png"
 
 define mary = Character("Mary")
-image mary = "draft/lucy.png"
-image mary flipped = im.Flip("draft/lucy.png", horizontal=True)
+image mary = "draft/mary.png"
+image mary flipped = im.Flip("draft/mary.png", horizontal=True)
 define velvet = Character("Velvet")
 image velvet = "draft/velvet.png"
 image velvet grinning = "draft/velvet.png"
@@ -30,7 +30,11 @@ image velvet grinning = "draft/velvet.png"
 image title = "draft/title.jpg"
 image breakfast = "draft/breakfast_scene.jpg"
 image smooch = "draft/smooch_scene.jpg"
+image mom_room = "draft/breakfast_scene.jpg"
+image lucy_room = "draft/breakfast_scene.jpg"
 image schoolyard = "draft/title.jpg"
+
+default underwear = "boxers"
 
 label start:
 
@@ -136,9 +140,40 @@ label start:
         "Lucas' Room":
             jump school
         "Linda's (Mom's) Room":
-            jump school
+            jump mom_room
         "Lucy's Room":
             jump school
+
+label mom_room:
+    scene mom_room
+    with fade
+
+    show lucas at left
+    lucas "Strange... Mom never lets the door of her room open... Are those panties!?" #blush
+
+    show mom at left_off
+    mom "Lucas! What are you doing in my room!"
+
+    lucas "I..." #blush
+
+    mom "Are those my panties?"
+
+    lucas "Wait! I can explain!"
+
+    mom "Oh you will young man, or should I say {i}young lady{/i}! I don't have time for this, we will talk when I get home, but you will be punished now!"
+
+    #[Cutscene of Linda putting a lingerie set on Lucas]
+    "..."
+    $ underwear = "lingerie"
+
+    lucas "Mom! I can't go to school like that!" #blush
+
+    mom "Yes you can, {i}young lady{/i}! And don't you dare take it off, I will know it! So have fun at school, dear."
+    hide mom
+
+    lucas "Great..." #blush
+
+    jump school
 
 label school:
     lucas "Off to school I guess..."
@@ -157,7 +192,6 @@ label school:
 
     velvet "I told them to."
 
-    show mary flipped at left_off
     lucas "You did what!!!???" (multiple=2)
     mary "You did what!!!???" (multiple=2)
 
@@ -167,7 +201,7 @@ label school:
 
     velvet "The rules... I know the rules since your mom is a cop and annoys us with them everyday... At least she stopped asking us about our dolls..."
 
-    stacy "Ye... Yea... Dolls... blush"
+    mary "Ye... Yea... Dolls... blush"
 
     lucas "Still, you shouldn't have done it. You know how Nowi is..."
 
@@ -177,14 +211,25 @@ label school:
 
     velvet "Tonight."
 
-    stacy "You aren't..."
+    mary "You aren't..."
 
     velvet "Oh yea I am! Tonight the both of you will meet me at midnight at the Abraham Woods!"
 
     lucas "You are crazy Velvet I am not going there!"
 
     velvet "What's wrong? Baby had an accident?"
+    show velvet at left_off
 
     #[Cutscene Velvet checks Lucas pants]
+    "..."
+
+    if underwear == "boxers":
+        lucas "Hey! What are you..." #blush
+
+        velvet "Awwwwww... Cute pokemon boxers."
+
+    velvet "Anyway we will see you tonight, don't you dare to bail on us or you will be sorry... Ok see ya!"
+
+    mary "See you tonight." #blushes
 
     return

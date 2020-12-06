@@ -142,7 +142,7 @@ label start:
         "Linda's (Mom's) Room":
             jump mom_room
         "Lucy's Room":
-            jump school
+            jump lucy_room
 
 label mom_room:
     scene mom_room
@@ -173,6 +173,40 @@ label mom_room:
 
     lucas "Great..." #blush
 
+    jump school
+
+label lucy_room:
+    scene lucy_room
+    with fade
+
+    show lucas at left
+    lucas "So... This is Lucy's new room... Old crib gone and replaced with a new bed... what's this under it? Adult diapers? Those are big enough to fit me!"
+
+    show mom at right
+    mom "They certainly do sweety."
+
+    lucas "Mom!? What are you still doing here I tough you were gone?"
+
+    mom "I forgot something, glad I did, since I wouldn't caught you snooping around your sisters room!"
+
+    lucas "No mom! It's not what it looks like! I swear! "
+
+    mom "Save it for when you get home from school young man! For now, some punishment must be applied..."
+
+    #[Cutscene of Linda diapers Lucas]
+    "..."
+    $ underwear = "diapers"
+
+    lucas "Stop it mom! I am not a baby anymore! Why do you even have those in Lucy's room?" #blush
+
+    mom "A young lady was shoplifting them for some reason, I didn't have time to return them to the store so I took them home to return them later... guess I have a use for them after all!" #giggles
+
+    lucas "Mom! I can't go to school like that!" #blush
+
+    mom "Yes you can young lady! And don't you dare take them off, I will know it! So have fun at school dear."
+    hide mom
+
+    lucas "Great..." #blush
     jump school
 
 label school:
@@ -228,8 +262,24 @@ label school:
 
         velvet "Awwwwww... Cute pokemon boxers."
 
-    velvet "Anyway we will see you tonight, don't you dare to bail on us or you will be sorry... Ok see ya!"
+        velvet "Anyway we will see you tonight, don't you dare to bail on us or you will be sorry... Ok see ya!"
 
-    mary "See you tonight." #blushes
+        mary "See you tonight." #blushes
+    elif underwear == "lingerie":
+        velvet "My, my, Lucas! Nice panties! Where did you get them from? Victoria Secrets! I bet you have matching bra and stockings as well!" #laughs
+
+        lucas "I can explain!"
+
+        velvet "Sure you can, sweety! Screw the daycare! Tonight we are coming over for some fun! But I must admit... your booty looks smoking in it! See you tonight, {i}sissy{/i}!" #laughs
+
+        lucas "Great... Can it get any worse?" #blush
+    elif underwear == "diapers":
+        velvet "I didn't really expect you to wear diapers! Awwwwwww, so cute! No brownies in those... for now!" #laughs
+
+        lucas "I can explain!"
+
+        velvet "Sure you can, sweety! Screw the daycare! Tonight we are coming over for some fun! But I must admit... you look pretty cute in those! See you tonight, {i}baby{/i}!" #laughs
+
+        lucas "Great... Can it get any worse?" #blush
 
     return

@@ -282,4 +282,16 @@ label school:
 
         lucas "Great... Can it get any worse?" #blush
 
+    jump demo_ending
+
+label demo_ending:
+    scene smooch
+    with fade
+
+    "That's all we have for the demo so far..."
+
+    "You may go back and try to do a few things differently and see what happens, though."
+
+    "Have fun and thanks~!"
+
     return
